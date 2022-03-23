@@ -7,8 +7,8 @@ var dinnerBtnEl = document.querySelector("#dinnerBtn");
 
 var dinnerCard = function() {
     // format the github api url
-    var apiKey = "418dfdd00ed74c70b2324cdd2a245a64"
-    var apiUrl = "https://api.spoonacular.com/recipes/random?number=5&tags=vegetarian,dessert&apiKey=" + apiKey;
+    var apiKey = "b992d58c769a431bbb2cf392882f3967"
+    var apiUrl = "https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=" + apiKey;
     
 
     // make a request to the url
@@ -18,7 +18,7 @@ var dinnerCard = function() {
         if (response.ok) {
             response.json()
             .then(function(data) {
-                apiData(data);
+                console.log(data.id);
             });
         } else {
             alert('Error');
@@ -32,11 +32,11 @@ var dinnerCard = function() {
     });
 };
 
-dinnerBtnEl.addEventListener("click", apiData);
+dinnerBtnEl.addEventListener("click", dinnerCard);
 
-var apiData = function (recipes) {
-    console.log(recipes);
-};
+// var apiData = function (recipes) {
+//     console.log(recipes);
+// };
 
 dinnerCard();
 
