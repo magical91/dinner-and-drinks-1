@@ -58,7 +58,6 @@ var apiData = function (data) {
     var dinIns = document.createElement('p');
     dinIns.textContent = data.recipes[0].instructions;
     dinnerInstructionsEl.appendChild(dinIns);
-
 };
 
 dinnerCard();
