@@ -2,6 +2,7 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
+var dinnerFavEl = document.querySelector("#dinnerFav");
 
 
 
@@ -125,6 +126,7 @@ var apiCocktail = function (data) {
 
 
 
+dinnerFavEl.addEventListener("click", dinnerSave());
 
 
 
