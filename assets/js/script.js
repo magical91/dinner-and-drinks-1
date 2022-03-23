@@ -2,7 +2,7 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
-var drinkFavEl = document.querySelector("#drinkFav");
+var dinnerFavEl = document.querySelector("#dinnerFav");
 
 
 
@@ -64,15 +64,14 @@ var apiData = function (data) {
 
 dinnerCard();
 
-drinkFavEl.addEventListener("click", drinksSave())
-
-var drinksSave = function (storageData) {
-    var dataID = storageData.id
-    localStorage.setItem("drinks-data" +dataID, JSON.stringify(storageData));
+var dinnerSave = function (storageData) {
+    console.log(storageData);
+    var dataID = storageData.id;
+    localStorage.setItem("dinner-data"+dataID, JSON.stringify(storageData));
 };
 
 
-
+dinnerFavEl.addEventListener("click", dinnerSave());
 
 
 
