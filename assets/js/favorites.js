@@ -13,7 +13,9 @@ dummyDataPush();
 
 console.log(JSON.parse(localStorage.getItem("drinkInfo")));
 
-
+array.forEach(element => {
+    
+});
 
 
 favBtnEl.addEventListener("click", dinnerSave());

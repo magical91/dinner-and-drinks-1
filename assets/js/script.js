@@ -71,7 +71,7 @@ var dinnerSave = function () {
     //localStorage.setItem("dinner-data"+dataID, JSON.stringify(storageData));
 };
 
-$("#dinnerFav").on("click", dinnerSave());
+
 
 
 
