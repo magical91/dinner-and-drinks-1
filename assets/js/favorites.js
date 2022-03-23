@@ -20,6 +20,6 @@ favBtnEl.addEventListener("click", dinnerSave());
 
 var dataID = storageData.id
 var dinnerSave = function () {
-    localStorage.setItem("dinner-data" +dataID, JSON.stringify(storageData);
+    localStorage.setItem("dinner-data" +dataID, JSON.stringify(storageData));
     
 };

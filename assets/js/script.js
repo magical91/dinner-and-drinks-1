@@ -2,6 +2,7 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
+var drinkFavEl = document.querySelector("#drinkFav");
 
 
 
@@ -63,11 +64,11 @@ var apiData = function (data) {
 
 dinnerCard();
 
-favBtnEl.addEventListener("click", drinksSave())
+drinkFavEl.addEventListener("click", drinksSave())
 
 var drinksSave = function (storageData) {
     var dataID = storageData.id
-    localStorage.setItem("drinks-data" +dataID, JSON.stringify(storageData);
+    localStorage.setItem("drinks-data" +dataID, JSON.stringify(storageData));
 };
 
 
