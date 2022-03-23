@@ -63,6 +63,13 @@ var apiData = function (data) {
 
 dinnerCard();
 
+favBtnEl.addEventListener("click", drinksSave())
+
+var drinksSave = function (storageData) {
+    var dataID = storageData.id
+    localStorage.setItem("drinks-data" +dataID, JSON.stringify(storageData);
+};
+
 
 
 
