@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Dinner & Drinks</title>
 </head>
 <body>
 
     <header>
-        <h1 class="text-center">DINNER AND DRINKS ROULETTE</h1>
+        <h1 class="primary-title">DINNER & DRINKS ROULETTE</h1>
     </header>
 
     <main>
         <!-- main div -->
-        <div class = "flex-row justify-center">
+        <div class = "d-flex">
             <!-- div for dinner seciton -->
             <div id = "dinnerContainer" class = "col-6">
                 <card>
-                    <h2 id = "dinnerName"></h2>
-                    <img id="dinnerImage">
+                    <h2 class="secondary-title" id = "dinnerName"></h2>
+                    <img id="dinnerImage" />
                     <button id="dinnerFav"></button>
                     <!-- div for api stuff -->
                     <div id="dinnerInstructions">
@@ -31,10 +31,10 @@
             </div>
 
             <!-- div for drinks section -->
-            <div id = "drinkContainer" class = "col-6">
+            <div id = "drinkContainer" class = "secondary-title col-6">
                 <card>
-                    <h2 id = "drinkName"></h2>
-                    <img id="drinkImage">
+                    <h2 class="secondary-title" id = "drinkName"></h2>
+                    <img id="drinkImage" />
                     <button id="drinkFav"></button>
                     <!-- div for api stuff -->
                     <div id="drinkInstructions">
@@ -42,8 +42,8 @@
                     </div>
                 </card>
             </div>
-
         </div>
+        
     </main>
 
     <script src="./assets/js/script.js"></script>

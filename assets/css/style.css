@@ -1,0 +1,26 @@
+:root {
+    --primary-color: #3a1412;
+    --secondary-color: #ed2d7b;
+    --tertiary-color: #be9275;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.primary-title {
+    background-color: var(--primary-color);
+    color: aliceblue;
+    text-align: center;
+    font-family: open;
+}
+
+.secondary-title {
+    background-color: var(--secondary-color);
+}
+
+.dinnerContainer, .drinkContainer {
+    border: 1px solid black;
+    height: 100px;
+}
