@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Dinner & Drinks</title>
+    <title>Document</title>
 </head>
 <body>
 
@@ -16,16 +16,16 @@
 
     <main>
         <!-- main div -->
-        <div class = "d-flex">
+        <div class = "row justify-center">
             <!-- div for dinner seciton -->
             <div id = "dinnerContainer" class = "col-6">
-                <card>
-                    <h2 class="secondary-title" id = "dinnerName"></h2>
-                    <img id="dinnerImage" />
-                    <button id="dinnerFav"></button>
+                <card class="card" style="width: 20rem;">
+                    <div id = "dinnerName"></div>
+                    <div id="dinnerImage">
+                    </div>
+                    <button id="dinnerFav" type="button" class="btn btn-primary">FAV</button>
                     <!-- div for api stuff -->
                     <div id="dinnerInstructions">
-
                     </div>
                 </card>
             </div>
@@ -33,15 +33,22 @@
             <!-- div for drinks section -->
             <div id = "drinkContainer" class = "secondary-title col-6">
                 <card>
-                    <h2 class="secondary-title" id = "drinkName"></h2>
-                    <img id="drinkImage" />
-                    <button id="drinkFav"></button>
+                    <h2 id = "drinkName"></h2>
+                    <div id="drinkImage"></div>
+                    <button id="drinkFav" type="button" class="btn btn-primary">FAV</button>
                     <!-- div for api stuff -->
                     <div id="drinkInstructions">
 
                     </div>
                 </card>
             </div>
+
+            <div id = "btnContainer">
+                <button type="button" class="btn btn-primary" id="dinnerBtn">Get Dinner</button>
+                <button type="button" class="btn btn-primary" id="Btn">Get Both</button>
+                <button type="button" class="btn btn-primary" id="drinkBtn">Get Drink</button>
+            </div>
+
         </div>
         
     </main>
