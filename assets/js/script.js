@@ -8,7 +8,7 @@ var dinnerFavEl = document.querySelector("#dinnerFav");
 
 var dinnerCard = function() {
     // format the github api url
-    var apiKey = "b992d58c769a431bbb2cf392882f3967"
+    var apiKey = "b596b6d1a386544c0aab56730e38ff084"
     var apiUrl = "https://api.spoonacular.com/recipes/random?number=1&cuisine=italian,american,japanese,mexican,chinese&apiKey=" + apiKey;
     
 
@@ -36,7 +36,8 @@ var dinnerCard = function() {
 dinnerBtnEl.addEventListener("click", dinnerCard);
 
 var apiData = function (data) {
-    var storageData = data.recipes[0];
+    var storageData = JSON.stringify(data.recipes[0]);
+    localStorage.setItem("dinnerData", storageData);
     console.log(storageData);
 
     dinnerNameEl.innerHTML = ""
@@ -62,16 +63,15 @@ var apiData = function (data) {
 
 };
 
-dinnerCard();
 
-var dinnerSave = function (storageData) {
-    console.log(storageData);
-    var dataID = storageData.id;
-    localStorage.setItem("dinner-data"+dataID, JSON.stringify(storageData));
+var dinnerSave = function () {
+    dinnerStorageData = localStorage.getItem("dinner-data");
+    console.log(dinnerStorageData);
+    //var dataID = storageData.id;
+    //localStorage.setItem("dinner-data"+dataID, JSON.stringify(storageData));
 };
 
-
-dinnerFavEl.addEventListener("click", dinnerSave());
+$("#dinnerFav").on("click", dinnerSave());
 
 
 
