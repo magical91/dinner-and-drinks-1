@@ -1,8 +1,15 @@
-var getUserRepos = function() {
+var dinnerNameEl = document.querySelector("#dinnerName");
+var dinnerImageEl = document.querySelector("#dinnerImage");
+var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
+var dinnerBtnEl = document.querySelector("#dinnerBtn");
+
+
+
+var dinnerCard = function() {
     // format the github api url
     var apiKey = "418dfdd00ed74c70b2324cdd2a245a64"
-    var apiUrl = "https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=" + apiKey;
-    ;
+    var apiUrl = "https://api.spoonacular.com/recipes/random?number=5&tags=vegetarian,dessert&apiKey=" + apiKey;
+    
 
     // make a request to the url
     fetch(apiUrl)
@@ -11,7 +18,7 @@ var getUserRepos = function() {
         if (response.ok) {
             response.json()
             .then(function(data) {
-                console.log(data);
+                apiData(data);
             });
         } else {
             alert('Error');
@@ -20,12 +27,18 @@ var getUserRepos = function() {
     .catch(function(error) {
         // Notice this `.catch()` getting chained onto the end of the `.then()` method
         if (error) {
-        alert("Unable to connect to GitHub");
+        alert("Unable to connect to api");
         }
     });
 };
 
-getUserRepos();
+dinnerBtnEl.addEventListener("click", apiData);
+
+var apiData = function (recipes) {
+    console.log(recipes);
+};
+
+dinnerCard();
 
 
 
