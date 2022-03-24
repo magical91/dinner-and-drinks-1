@@ -57,14 +57,7 @@ var apiData = function (data) {
     dinnerInstructionsEl.appendChild(dinIns);
 };
 
-dinnerCard();
-getrandomCocktail();
-drinkBtnEl.addEventListener("click", getrandomCocktail);
-dinnerBtnEl.addEventListener("click", dinnerCard);
-getBothEl.addEventListener("click", function () {
-    dinnerCard();
-    getrandomCocktail();
-});
+
 
 var drinkNameEl = document.querySelector("#drinkName");
 var drinkImageEl = document.querySelector("#drinkImage");
@@ -95,6 +88,28 @@ var getrandomCocktail = function() {
 };
 
 var apiCocktail = function (data) {
+
+    drinkNameEl.innerHTML = ""
+    drinkImageEl.innerHTML = ""
+    drinkInstructionsEl.innerHTML = ""
+
+    var drinkHeading = document.createElement('a');
+    drinkHeading.setAttribute("class", "font-weight-bold text-uppercase");
+    drinkHeading.textContent = data.drinks[0].strDrink;
+    drinkHeading.href = data.drinks[0].sourceUrl;
+    drinkNameEl.appendChild(drinkHeading);
+    
+
+    var drinkImage = document.createElement('img')
+    drinkImage.src = data.drinks[0].strDrinkThumb
+    drinkImage.style.width = "200px";
+    drinkImage.style.height = "200px";
+    drinkImageEl.appendChild(drinkImage);
+
+    var drinkInstructions = document.createElement('p');
+    drinkInstructions.textContent = data.drinks[0].strInstructions;
+    drinkInstructionsEl.appendChild(drinkInstructions);
+
     var cocktailData = data.drinks[0];
     console.log(cocktailData.idDrink);
 
@@ -120,27 +135,6 @@ var apiCocktail = function (data) {
     sessionStorage.removeItem("drinkData")
     sessionStorage.setItem("drinkData", JSON.stringify(cocktailData));
 
-    drinkNameEl.innerHTML = ""
-    drinkImageEl.innerHTML = ""
-    drinkInstructionsEl.innerHTML = ""
-
-    var drinkHeading = document.createElement('a');
-    drinkHeading.setAttribute("class", "font-weight-bold text-uppercase");
-    drinkHeading.textContent = data.drinks[0].strDrink;
-    drinkHeading.href = data.drinks[0].sourceUrl;
-    drinkNameEl.appendChild(drinkHeading);
-    
-
-    var drinkImage = document.createElement('img')
-    drinkImage.src = data.drinks[0].strDrinkThumb
-    drinkImage.style.width = "200px";
-    drinkImage.style.height = "200px";
-    drinkImageEl.appendChild(drinkImage);
-
-    var drinkInstructions = document.createElement('p');
-    drinkInstructions.textContent = data.drinks[0].strInstructionsgit
-    drinkInstructionsEl.appendChild(drinkInstructions);
-
 };
 
 //Favorite Button Functions
@@ -154,7 +148,7 @@ function favDinnerSave() {
     sessionStorage.removeItem("dinnerData");
 };
 
-dinnerFavEl.addEventListener("click", favDinnerSave);
+
 
 function favDrinkSave() {
     var drinkFavStorage = JSON.parse(sessionStorage.getItem("drinkData"));
@@ -163,4 +157,15 @@ function favDrinkSave() {
     sessionStorage.removeItem("drinkData");
 };
 
+
+
+dinnerCard();
+getrandomCocktail();
+drinkBtnEl.addEventListener("click", getrandomCocktail);
+dinnerBtnEl.addEventListener("click", dinnerCard);
+getBothEl.addEventListener("click", function () {
+    dinnerCard();
+    getrandomCocktail();
+});
+dinnerFavEl.addEventListener("click", favDinnerSave);
 drinkFavEl.addEventListener("click", favDrinkSave);
