@@ -99,9 +99,15 @@ drinkBtnEl.addEventListener("click", getrandomCocktail);
 
 var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
-    console.log(cocktailData);
+    console.log(cocktailData.idDrink);
 
-    localStorage.setItem("drinkData", JSON.stringify(cocktailData));
+    var val = cocktailData.idDrink;
+    cocktailData.id = val;
+    delete cocktailData.idDrink;
+
+    console.log(cocktailData.id)
+
+    sessionStorage.setItem("drinkData", JSON.stringify(cocktailData));
 
     drinkNameEl.innerHTML = ""
     drinkImageEl.innerHTML = ""
@@ -127,19 +133,26 @@ var apiCocktail = function (data) {
 };
 
 //Favorite Button Functions
-// const drinkFavEl = document.getElementById("drinkFav");
+const drinkFavEl = document.getElementById("drinkFav");
 const dinnerFavEl = document.getElementById("dinnerFav");
 var favBtnEl = document.querySelector(".fav-btn");
 
 function favDinnerSave() {
-    var DinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
-    var uniqueID = JSON.stringify(DinnerFavStorage.id);
+    var dinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
+    var uniqueID = JSON.stringify("dinner:"+dinnerFavStorage.id);
     localStorage.setItem(uniqueID, sessionStorage.getItem("dinnerData"));
     sessionStorage.removeItem("dinnerData");
 };
 
 dinnerFavEl.addEventListener("click", favDinnerSave);
 
+function favDrinkSave() {
+    var drinkFavStorage = JSON.parse(sessionStorage.getItem("drinkData"));
+    var uniqueID = JSON.stringify("drink:"+drinkFavStorage.id);
+    localStorage.setItem(uniqueID, sessionStorage.getItem("drinkData"));
+    sessionStorage.removeItem("drinkData");
+};
 
+drinkFavEl.addEventListener("click", favDrinkSave);
 
 
