@@ -125,7 +125,6 @@ var apiCocktail = function (data) {
 
 };
 
-
 dinnerCard();
 getrandomCocktail();
 drinkBtnEl.addEventListener("click", getrandomCocktail);
@@ -135,7 +134,8 @@ getBothEl.addEventListener("click", function () {
     getrandomCocktail();
 });
 
-dinnerFavEl.addEventListener("click", dinnerSave());
+
+
 
 
 
