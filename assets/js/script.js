@@ -3,6 +3,8 @@ var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
 var dinnerFavEl = document.querySelector("#dinnerFav");
+var drinkBtnEl = document.querySelector("#drinkBtn");
+var drinkFavEl = document.querySelector("#drinkFav");
 
 
 
@@ -38,7 +40,6 @@ dinnerBtnEl.addEventListener("click", dinnerCard);
 var apiData = function (data) {
     var storageData = JSON.stringify(data.recipes[0]);
     localStorage.setItem("dinnerData", storageData);
-    console.log(storageData);
 
     dinnerNameEl.innerHTML = ""
     dinnerImageEl.innerHTML = ""
@@ -106,6 +107,8 @@ var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
     console.log(cocktailData);
 
+    localStorage.setItem("drinkdata", JSON.stringify(cocktailData));
+
     drinkNameEl.innerHTML = ""
     drinkImageEl.innerHTML = ""
     drinkInstructionsEl.innerHTML = ""
@@ -129,10 +132,26 @@ var apiCocktail = function (data) {
 
 };
 
+//drink favorites button
 
 
+var drinkSave = function () {
+    var drinkFavData = localStorage.getItem("drinkdata");
+    console.log(drinkFavData);
+    localStorage.removeItem("drinkdata");
+};
 
+drinkFavEl.addEventListener("click", drinkSave())
 
+//dinner favorites button
+
+var dinnerSave = function () {
+    var dinnerFavData = localStorage.getItem("dinnerdata");
+    console.log(dinnerFavData);
+    localStorage.removeItem("dinnerdata");
+};
+
+dinnerFavEl.addEventListener("click", dinnerSave())
 
 
 
