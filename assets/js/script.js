@@ -2,21 +2,14 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
-
 var drinkBtnEl = document.querySelector("#drinkBtn");
-
-var dinnerFavEl = document.querySelector("#dinnerFav");
 var getBothEl = document.querySelector("#Btn");
-
-
-
 
 var dinnerCard = function() {
     // format the github api url
     var apiKey = "3951c13ab4de4396a209231be38dc366"
     var apiUrl = "https://api.spoonacular.com/recipes/random?number=1&cuisine=italian,american,japanese,mexican,chinese&apiKey=" + apiKey;
     
-
     // make a request to the url
     fetch(apiUrl)
     .then(function(response) {
@@ -38,8 +31,6 @@ var dinnerCard = function() {
     });
 };
 
-
-
 var apiData = function (data) {
     var storageData = JSON.stringify(data.recipes[0]);
     sessionStorage.removeItem("dinnerData")
@@ -55,7 +46,6 @@ var apiData = function (data) {
     dinHeading.href = data.recipes[0].sourceUrl;
     dinnerNameEl.appendChild(dinHeading);
     
-
     var dinImg = document.createElement('img')
     dinImg.src = data.recipes[0].image
     dinImg.style.width = "200px";
@@ -65,8 +55,16 @@ var apiData = function (data) {
     var dinIns = document.createElement('p');
     dinIns.textContent = data.recipes[0].instructions;
     dinnerInstructionsEl.appendChild(dinIns);
-
 };
+
+dinnerCard();
+getrandomCocktail();
+drinkBtnEl.addEventListener("click", getrandomCocktail);
+dinnerBtnEl.addEventListener("click", dinnerCard);
+getBothEl.addEventListener("click", function () {
+    dinnerCard();
+    getrandomCocktail();
+});
 
 var drinkNameEl = document.querySelector("#drinkName");
 var drinkImageEl = document.querySelector("#drinkImage");
@@ -148,7 +146,6 @@ var apiCocktail = function (data) {
 //Favorite Button Functions
 const drinkFavEl = document.getElementById("drinkFav");
 const dinnerFavEl = document.getElementById("dinnerFav");
-var favBtnEl = document.querySelector(".fav-btn");
 
 function favDinnerSave() {
     var dinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
@@ -167,37 +164,3 @@ function favDrinkSave() {
 };
 
 drinkFavEl.addEventListener("click", favDrinkSave);
-
-
-
-dinnerCard();
-getrandomCocktail();
-drinkBtnEl.addEventListener("click", getrandomCocktail);
-dinnerBtnEl.addEventListener("click", dinnerCard);
-getBothEl.addEventListener("click", function () {
-    dinnerCard();
-    getrandomCocktail();
-});
-
-
-
-function favDinnerSave() {
-    var dinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
-    var uniqueID = JSON.stringify("dinner:"+dinnerFavStorage.id);
-    localStorage.setItem(uniqueID, sessionStorage.getItem("dinnerData"));
-    sessionStorage.removeItem("dinnerData");
-};
-
-
-dinnerFavEl.addEventListener("click", favDinnerSave);
-
-function favDrinkSave() {
-    var drinkFavStorage = JSON.parse(sessionStorage.getItem("drinkData"));
-    var uniqueID = JSON.stringify("drink:"+drinkFavStorage.id);
-    localStorage.setItem(uniqueID, sessionStorage.getItem("drinkData"));
-    sessionStorage.removeItem("drinkData");
-};
-
-drinkFavEl.addEventListener("click", favDrinkSave);
-
-
