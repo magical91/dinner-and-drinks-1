@@ -1,25 +1,30 @@
-var drinkInfo = [{"id": "0", "name":"drink", "sum":"here are some words", "img":"http://"}, 
-                {"id": "1", "name":"otherDrink", "sum":"here are some different words", "img":"https://"}];
+var archive = [];
+var favSectionEl = document.querySelector("#favSection");
 
-var dinnerInfo = [{"id": "0", "name":"dinner", "sum":"here are some words", "img":"http://"}, 
-                {"id": "1", "name":"otherDinner", "sum":"here are some different words", "img":"https://"}];
+function allStorage () {
+    for (var i = 0; i<localStorage.length; i++) {
+        archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    };
+    console.log(archive);
+    for (var i = 0; i<localStorage.length; i++) {
 
-var dummyDataPush = function() {
-    localStorage.setItem("drinkInfo", JSON.stringify(drinkInfo));
-    localStorage.setItem("dinnerInfo", JSON.stringify(drinkInfo));
+        var favCardEl = document.createElement("div");
+        favSectionEl.appendChild(favCardEl);
+        
+            var cardTitleEl = document.createElement("h5");
+            favCardEl.appendChild(cardTitleEl);
+            var cardBodyEl = document.createElement("div")
+            favCardEl.appendChild(cardBodyEl);
+
+                var favCardEl = document.createElement("img");
+                favSectionEl.appendChild(cardBodyEl);               
+                var favCardEl = document.createElement("p");
+                favSectionEl.appendChild(cardBodyEl);
+                var favCardEl = document.createElement("a");
+                favSectionEl.appendChild(cardBodyEl);
+
+    };
 };
 
-dummyDataPush();
-
-console.log(JSON.parse(localStorage.getItem("drinkInfo")));
-
-
-
-
-favBtnEl.addEventListener("click", dinnerSave());
-
-var dataID = storageData.id
-var dinnerSave = function () {
-    localStorage.setItem("dinner-data" +dataID, JSON.stringify(storageData));
-    
-};
+console.log(archive);
+allStorage();

@@ -2,8 +2,12 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
+
+var drinkBtnEl = document.querySelector("#drinkBtn");
+
 var dinnerFavEl = document.querySelector("#dinnerFav");
 var getBothEl = document.querySelector("#Btn");
+
 
 
 
@@ -37,8 +41,9 @@ var dinnerCard = function() {
 
 
 var apiData = function (data) {
-    var storageData = data.recipes[0];
-    console.log(storageData);
+    var storageData = JSON.stringify(data.recipes[0]);
+    sessionStorage.removeItem("dinnerData")
+    sessionStorage.setItem("dinnerData", storageData);
 
     dinnerNameEl.innerHTML = ""
     dinnerImageEl.innerHTML = ""
@@ -62,8 +67,6 @@ var apiData = function (data) {
     dinnerInstructionsEl.appendChild(dinIns);
 
 };
-
-
 
 var drinkNameEl = document.querySelector("#drinkName");
 var drinkImageEl = document.querySelector("#drinkImage");
@@ -93,14 +96,31 @@ var getrandomCocktail = function() {
     });
 };
 
-
-
-
-
-
 var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
-    console.log(cocktailData);
+    console.log(cocktailData.idDrink);
+
+    //matching up keys
+    var val = cocktailData.idDrink;
+    cocktailData.id = val;
+    delete cocktailData.idDrink;
+
+    var val = cocktailData.strDrink;
+    cocktailData.title = val;
+    delete cocktailData.strDrink;
+
+    var val = cocktailData.strDrinkThumb;
+    cocktailData.image = val;
+    delete cocktailData.strDrinkThumb;
+
+    var val = cocktailData.strInstructions;
+    cocktailData.instructions = val;
+    delete cocktailData.strInstructions;
+
+    console.log(cocktailData.id)
+
+    sessionStorage.removeItem("drinkData")
+    sessionStorage.setItem("drinkData", JSON.stringify(cocktailData));
 
     drinkNameEl.innerHTML = ""
     drinkImageEl.innerHTML = ""
@@ -125,6 +145,12 @@ var apiCocktail = function (data) {
 
 };
 
+
+//Favorite Button Functions
+const drinkFavEl = document.getElementById("drinkFav");
+const dinnerFavEl = document.getElementById("dinnerFav");
+var favBtnEl = document.querySelector(".fav-btn");
+
 dinnerCard();
 getrandomCocktail();
 drinkBtnEl.addEventListener("click", getrandomCocktail);
@@ -136,43 +162,23 @@ getBothEl.addEventListener("click", function () {
 
 
 
+function favDinnerSave() {
+    var dinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
+    var uniqueID = JSON.stringify("dinner:"+dinnerFavStorage.id);
+    localStorage.setItem(uniqueID, sessionStorage.getItem("dinnerData"));
+    sessionStorage.removeItem("dinnerData");
+};
 
 
+dinnerFavEl.addEventListener("click", favDinnerSave);
 
+function favDrinkSave() {
+    var drinkFavStorage = JSON.parse(sessionStorage.getItem("drinkData"));
+    var uniqueID = JSON.stringify("drink:"+drinkFavStorage.id);
+    localStorage.setItem(uniqueID, sessionStorage.getItem("drinkData"));
+    sessionStorage.removeItem("drinkData");
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+drinkFavEl.addEventListener("click", favDrinkSave);
 
 
