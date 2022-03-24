@@ -2,8 +2,11 @@ var dinnerNameEl = document.querySelector("#dinnerName");
 var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
+
 var drinkBtnEl = document.querySelector("#drinkBtn");
 
+var dinnerFavEl = document.querySelector("#dinnerFav");
+var getBothEl = document.querySelector("#Btn");
 
 
 
@@ -35,7 +38,7 @@ var dinnerCard = function() {
     });
 };
 
-dinnerBtnEl.addEventListener("click", dinnerCard);
+
 
 var apiData = function (data) {
     var storageData = JSON.stringify(data.recipes[0]);
@@ -93,11 +96,6 @@ var getrandomCocktail = function() {
     });
 };
 
-//getrandomCocktail();
-
-
-drinkBtnEl.addEventListener("click", getrandomCocktail);
-
 var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
     console.log(cocktailData.idDrink);
@@ -147,10 +145,22 @@ var apiCocktail = function (data) {
 
 };
 
+
 //Favorite Button Functions
 const drinkFavEl = document.getElementById("drinkFav");
 const dinnerFavEl = document.getElementById("dinnerFav");
 var favBtnEl = document.querySelector(".fav-btn");
+
+dinnerCard();
+getrandomCocktail();
+drinkBtnEl.addEventListener("click", getrandomCocktail);
+dinnerBtnEl.addEventListener("click", dinnerCard);
+getBothEl.addEventListener("click", function () {
+    dinnerCard();
+    getrandomCocktail();
+});
+
+
 
 function favDinnerSave() {
     var dinnerFavStorage = JSON.parse(sessionStorage.getItem("dinnerData"));
@@ -158,6 +168,7 @@ function favDinnerSave() {
     localStorage.setItem(uniqueID, sessionStorage.getItem("dinnerData"));
     sessionStorage.removeItem("dinnerData");
 };
+
 
 dinnerFavEl.addEventListener("click", favDinnerSave);
 
