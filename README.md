@@ -22,8 +22,8 @@
 
 ## Authors
 
-* **Marissa Martinez** - *Initial work* - [Git Hub Profile](https://github.com/magical91)
-* **Charlie Thompson** - *Initial work* - [Git Hub Profile](https://github.com/soulslurpee) 
-* **Robbie Kahl** - *Initial work* - [Git Hub Profile](https://github.com/shorty008) 
-* **Ansab Sidiki** - *Initial work* - [Git Hub Profile](https://github.com/asidiki) 
+* **Marissa Martinez** - [Git Hub Profile](https://github.com/magical91)
+* **Charlie Thompson** - [Git Hub Profile](https://github.com/soulslurpee) 
+* **Robbie Kahl** - [Git Hub Profile](https://github.com/shorty008) 
+* **Ansab Sidiki** - [Git Hub Profile](https://github.com/asidiki) 
 
