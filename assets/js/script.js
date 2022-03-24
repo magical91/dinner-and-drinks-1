@@ -8,7 +8,7 @@ var dinnerFavEl = document.querySelector("#dinnerFav");
 
 var dinnerCard = function() {
     // format the github api url
-    var apiKey = "596b6d1a386544c0aab56730e38ff084"
+    var apiKey = "3951c13ab4de4396a209231be38dc366"
     var apiUrl = "https://api.spoonacular.com/recipes/random?number=1&cuisine=italian,american,japanese,mexican,chinese&apiKey=" + apiKey;
     
 
