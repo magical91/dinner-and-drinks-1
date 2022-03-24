@@ -39,6 +39,7 @@ dinnerBtnEl.addEventListener("click", dinnerCard);
 
 var apiData = function (data) {
     var storageData = JSON.stringify(data.recipes[0]);
+    sessionStorage.removeItem("dinnerData")
     sessionStorage.setItem("dinnerData", storageData);
 
     dinnerNameEl.innerHTML = ""
@@ -101,12 +102,26 @@ var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
     console.log(cocktailData.idDrink);
 
+    //matching up keys
     var val = cocktailData.idDrink;
     cocktailData.id = val;
     delete cocktailData.idDrink;
 
+    var val = cocktailData.strDrink;
+    cocktailData.title = val;
+    delete cocktailData.strDrink;
+
+    var val = cocktailData.strDrinkThumb;
+    cocktailData.image = val;
+    delete cocktailData.strDrinkThumb;
+
+    var val = cocktailData.strInstructions;
+    cocktailData.instructions = val;
+    delete cocktailData.strInstructions;
+
     console.log(cocktailData.id)
 
+    sessionStorage.removeItem("drinkData")
     sessionStorage.setItem("drinkData", JSON.stringify(cocktailData));
 
     drinkNameEl.innerHTML = ""
