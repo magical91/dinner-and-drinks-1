@@ -3,6 +3,7 @@ var dinnerImageEl = document.querySelector("#dinnerImage");
 var dinnerInstructionsEl = document.querySelector("#dinnerInstructions");
 var dinnerBtnEl = document.querySelector("#dinnerBtn");
 var dinnerFavEl = document.querySelector("#dinnerFav");
+var getBothEl = document.querySelector("#Btn");
 
 
 
@@ -33,7 +34,7 @@ var dinnerCard = function() {
     });
 };
 
-dinnerBtnEl.addEventListener("click", dinnerCard);
+
 
 var apiData = function (data) {
     var storageData = data.recipes[0];
@@ -62,7 +63,7 @@ var apiData = function (data) {
 
 };
 
-dinnerCard();
+
 
 var drinkNameEl = document.querySelector("#drinkName");
 var drinkImageEl = document.querySelector("#drinkImage");
@@ -92,10 +93,10 @@ var getrandomCocktail = function() {
     });
 };
 
-getrandomCocktail();
 
 
-drinkBtnEl.addEventListener("click", getrandomCocktail);
+
+
 
 var apiCocktail = function (data) {
     var cocktailData = data.drinks[0];
@@ -125,6 +126,14 @@ var apiCocktail = function (data) {
 };
 
 
+dinnerCard();
+getrandomCocktail();
+drinkBtnEl.addEventListener("click", getrandomCocktail);
+dinnerBtnEl.addEventListener("click", dinnerCard);
+getBothEl.addEventListener("click", function () {
+    dinnerCard();
+    getrandomCocktail();
+});
 
 dinnerFavEl.addEventListener("click", dinnerSave());
 
