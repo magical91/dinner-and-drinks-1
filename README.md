@@ -6,7 +6,7 @@
 
 ### Summary
 * This project emphasizes the use of HTML, CSS and JavaScript.
-* The app generates a random recipes for Dinner and Drinks.
+* The app generates random recipes for Dinner and Drinks.
 * The following Api's were used to pull the recipes:
 * Dinner API: https://spoonacular.com/food-api/docs#Get-Random-Recipes
 * Drinks API: https://www.thecocktaildb.com/api.php
