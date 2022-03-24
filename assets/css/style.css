@@ -1,12 +1,13 @@
 :root {
-    --primary-color: #3a1412;
-    --secondary-color: #ed2d7b;
-    --tertiary-color: #be9275;
+    --primary-color: #0f2043;
+    --secondary-color: #79cedc;
+    --tertiary-color: #d5a458;
 }
 
 * {
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .primary-title {
@@ -18,9 +19,59 @@
 
 .secondary-title {
     background-color: var(--secondary-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
 }
 
-.dinnerContainer, .drinkContainer {
-    border: 1px solid black;
-    height: 100px;
+.card-container {
+    padding: 30px;
 }
+
+.left-container {
+    display: flex;
+}
+
+.right-container {
+    display: flex;
+}
+
+.dinner-img {
+    width: 200px;
+    margin: 15px;
+}
+
+.drink-img {
+    width: 200px;
+}
+
+.dinner-instructions {
+    text-align: end;
+    padding-right: 5px;
+}
+
+.drink-instructions {
+    text-align: start;
+    padding-left: 5px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.btn {
+    background-color: var(--tertiary-color);
+    width: 200px;
+    margin: 7px 0;
+}
+
+.bottom-btn {
+    background-color: var(--secondary-color);
+    color: black;
+    width: 200px;
+}
+
+
+

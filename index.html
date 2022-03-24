@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Document</title>
+    <title>Dinner & Drinks</title>
 </head>
 <body>
 
@@ -16,37 +16,44 @@
 
     <main>
         <!-- main div -->
-        <div class = "row justify-center">
+        <div>
             <!-- div for dinner seciton -->
-            <div id = "dinnerContainer" class = "col-6">
-                <card class="card" style="width: 20rem;">
-                    <div id = "dinnerName"></div>
-                    <div id="dinnerImage">
-                    </div>
-                    <button id="dinnerFav" type="button" class="btn btn-primary">FAV</button>
-                    <!-- div for api stuff -->
-                    <div id="dinnerInstructions">
-                    </div>
-                </card>
+            <div class="d-flex">
+                <div id = "dinnerContainer" class = "card-container col-6">
+                    <card class="card">
+                        <div class="secondary-title" id = "dinnerName"></div>
+                        <div class="left-container">
+                            <!-- div for api stuff -->
+                            <div class="dinner-instructions" id="dinnerInstructions"></div>
+                            <div class="dinner-img">
+                                <div id="dinnerImage"></div>
+                                <button id="dinnerFav" type="button" class="btn btn-primary">FAV</button>
+                            </div>
+                        </div>
+                    </card>
+                </div>
+
+                <!-- div for drinks section -->
+                <div id = "drinkContainer" class = "card-container col-6">
+                    <card class="card">
+                        <h2 class="secondary-title" id = "drinkName"></h2>
+                        <div class="right-container">
+                            <div class="drink-img">
+                                <div id="drinkImage"></div>
+                                <button id="drinkFav" type="button" class="btn btn-primary">FAV</button>
+                            </div>
+                            <!-- div for api stuff -->
+                            <div class="drink-instructions" id="drinkInstructions"></div>
+                        </div>
+                    </card>
+                </div>
             </div>
 
-            <!-- div for drinks section -->
-            <div id = "drinkContainer" class = "secondary-title col-6">
-                <card>
-                    <h2 id = "drinkName"></h2>
-                    <div id="drinkImage"></div>
-                    <button id="drinkFav" type="button" class="btn btn-primary">FAV</button>
-                    <!-- div for api stuff -->
-                    <div id="drinkInstructions">
-
-                    </div>
-                </card>
-            </div>
-
-            <div id = "btnContainer">
-                <button type="button" class="btn btn-primary" id="dinnerBtn">Get Dinner</button>
-                <button type="button" class="btn btn-primary" id="Btn">Get Both</button>
-                <button type="button" class="btn btn-primary" id="drinkBtn">Get Drink</button>
+            <!-- buttons div container -->
+            <div class="btn-container" id = "btnContainer">
+                <button type="button" class="btn btn-primary bottom-btn" id="dinnerBtn">Get Dinner</button>
+                <button type="button" class="btn btn-primary bottom-btn" id="Btn">Get Both</button>
+                <button type="button" class="btn btn-primary bottom-btn" id="drinkBtn">Get Drink</button>
             </div>
 
         </div>
