@@ -1,7 +1,7 @@
 # DINNER AND DRINKS ROULETTE
 
 * [Git Hub](https://github.com/soulslurpee/dinner-and-drinks)
-* [Deployed App on GitHub Pages]()
+* [Deployed App on GitHub Pages](https://soulslurpee.github.io/dinner-and-drinks/)
 
 
 ### Summary
