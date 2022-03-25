@@ -5,37 +5,48 @@ function allStorage () {
     for (var i = 0; i<localStorage.length; i++) {
         archive[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
     };
-    console.log(archive);
-    for (var i = 0; i<localStorage.length; i++) {
+};
+
+function genFavCard () {
+    console.log(localStorage.length)
+    for (var i = 0; i < localStorage.length; i++) {
+
+        console.log(i);
 
         var favCardEl = document.createElement("div");
-            favSectionEl.appendChild(favCardEl);
-            gitEl.setAttribute("id","fav"+[i]);
+            favCardEl.setAttribute("id","fav"+[i]);
             favCardEl.setAttribute("class","card col-5 m-2");
 
-            var cardTitleEl = document.createElement("h5");
-                favCardEl.appendChild(cardTitleEl);
+            var cardTitleEl = document.createElement("div");
                 cardTitleEl.setAttribute("class", "card-header");
-                cardTitleEl.innerText(archive[i].title);
+                cardTitleEl.textContent = JSON.stringify(archive[i].title);
 
             var cardBodyEl = document.createElement("div");
-                favCardEl.appendChild(cardBodyEl);
                 cardBodyEl.setAttribute("class","card-body");
 
                 var cardImgEl = document.createElement("img");
-                    favSectionEl.appendChild(cardImgEl);    
-                    
+                    cardImgEl.setAttribute("src", archive[i].image);
+
                 var cardTextEl = document.createElement("p");
-                    favSectionEl.appendChild(cardTextEl);
-                    fav
+                    cardTextEl.textContent = JSON.stringify(archive[i].instructions);
 
                 var cardDeleteEl = document.createElement("a");
-                    favSectionEl.appendChild(cardDeleteEl);
                     cardDeleteEl.setAttribute("class","btn btn-primary");
-                    cardDeleteEl.innerText("Unfavorite :(")
+                    cardDeleteEl.textContent = "Unfavorite :(";
+
+        favSectionEl.appendChild(favCardEl);
+
+            favCardEl.appendChild(cardBodyEl);
+                cardBodyEl.appendChild(cardTitleEl);
+                cardBodyEl.appendChild(cardImgEl);
+                cardBodyEl.appendChild(cardTextEl);
+                cardBodyEl.appendChild(cardDeleteEl);
 
     };
 };
+allStorage();
+genFavCard();
 
 console.log(archive);
-allStorage();
+console.log(JSON.stringify(archive[0].id));
+console.log(JSON.stringify(archive[1].id));
