@@ -10,11 +10,15 @@
     width: 100%;
 }
 
-.primary-title {
+.main-nav {
     background-color: var(--primary-color);
     color: aliceblue;
     text-align: center;
     font-family: open;
+}
+
+.navbar {
+    color: aliceblue;
 }
 
 .secondary-title {
